@@ -1,21 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import logo from './logo.svg';
 import './App.css';
 
+
+function PeopleRender(props) {
+    const people = props;
+
+    const PeopleList  = people.map(person =>
+        <li>{person.name}</li>
+    );
+
+    return(
+        <ul>{PeopleList}</ul>
+    );
+}
+
 class App extends Component {
+
   render() {
+    const people = [{name: "john", id: 1}, {name: "alice", id: 2}]
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <PeopleRender people={people}/>
     );
   }
 }
 
 export default App;
+
+let store = createStore(actions)
+render(
+    <Root store={store} />,
+    document.getElementById('root')
+)
